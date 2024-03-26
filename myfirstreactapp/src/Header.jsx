@@ -1,9 +1,10 @@
 import React from 'react';
+import happyBunny from './image/happybunny.png'
 
 function Header(props){
   return (
   <>
-    <img src='./image/bunny.png' alt='a bunny holds a giant carrot with happy face' />
+    <img src={happyBunny} alt='a bunny holds a giant carrot with happy face' />
     <h1>EasyFind--EasyLife</h1>
   </>
   )
