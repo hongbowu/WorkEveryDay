@@ -1,11 +1,11 @@
 import React from 'react';
 import {comments} from './commentData'
-import Card from './Card'
+import Body from './Body'
 import './App.css'
 
 function App(){
  return (
-  comments.map((comment,index) => <Card key= {index} commentObject= {comment} />)
+  <Body />
  )
     
    
