@@ -1,11 +1,11 @@
 import React from 'react';
-import {comments} from './commentData'
-import Body from './Body'
+
+import Card from './Card'
 import './App.css'
 
 function App(){
  return (
-  <Body />
+  <Card />
  )
     
    

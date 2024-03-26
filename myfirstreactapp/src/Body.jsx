@@ -5,7 +5,7 @@ function Body(){
     <form>
         <fieldset> 
             <legend>
-                <label for='fileUpload'>Please select your file</label><br/>
+                <label htmlFor='fileUpload'>Please select your file</label><br/>
             </legend> 
             <input type='file' id='fileUpload' name='fileUpload'></input><br/>
             <input type='submit' name='Submit'></input>
