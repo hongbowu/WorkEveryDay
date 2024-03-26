@@ -1,5 +1,5 @@
 import React from 'react';
-import happyBunny from './image/joyBunny.jpg'
+import happyBunny from './image/background.png'
 
 function Header(props){
   return (
