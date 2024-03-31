@@ -1,4 +1,4 @@
-export const highScores = [
+const highScores = [
     {
       username: 'Big_Sprite19',
       date: '12/3/2022',
@@ -15,3 +15,4 @@ export const highScores = [
       score: 12 
     }
 ]
+export default highScores;
