@@ -1,27 +1,45 @@
-import {useState} from 'react';
+import React, { useState } from 'react';
 
-export default function Todo(){
+export default function Todo() {
     const [todos, setTodos] = useState([]);
-    let input;
-    function handleChange(e){
-        input = e.target.value;
-        setTodos((prev)=>([...prev, input]))
+    const [input, setInput] = useState('');
+
+    function handleChange(e) {
+        setInput(e.target.value);
     }
-    function handleClick(){
-        const todoList = document.getElementById('todoList');
-        todoList.textContent = todos.map((todo, index) => (
-            <li key={index}>{todo}</li>
-        ))
-        input = '';
+
+    function handleClick(e) {
+        e.preventDefault();
+        setTodos(prev => [...prev, { text: input, id: Date.now(), completed: false }]);
+        setInput('');
     }
-    return(
+
+    function handleDelete(id) {
+        setTodos(prev => prev.filter(todo => todo.id !== id));
+    }
+
+    function handleToggleComplete(id) {
+        setTodos(prev => prev.map(todo =>
+            todo.id === id ? { ...todo, completed: !todo.completed } : todo
+        ));
+    }
+
+    return (
         <>
-        <label htmlFor='TODO'>TODO</label>
-        <input onChange={handleChange} id='TODO' />
-        <input type='submit' onClick={handleClick} value='submit'/>
-        <ul id='todoList'>
-           
-        </ul>
+            <label htmlFor='TODO'>TODO</label>
+            <input onChange={handleChange} id='TODO' value={input} />
+            <button onClick={handleClick}>Submit</button>
+            <ul id='todoList'>
+                {todos.map(todo => (
+                    <li key={todo.id} style={{ textDecoration: todo.completed ? 'line-through' : 'none' }}>
+                        {todo.text}
+                        <button onClick={() => handleToggleComplete(todo.id)}>
+                            {todo.completed ? 'Undo' : 'Complete'}
+                        </button>
+                        <button onClick={() => handleDelete(todo.id)}>Delete</button>
+                    </li>
+                ))}
+            </ul>
         </>
-    )
+    );
 }
