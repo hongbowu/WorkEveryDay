@@ -45,6 +45,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <>
   {animalFacts}
+  <h1>{10*10}</h1>
   </>
   // <React.StrictMode>
   //   <App />
